@@ -11,8 +11,7 @@
 		}
 	],
 	"require": {
-		"aws/aws-sdk-php": "^3.135",
-		"php": ">=7.4.1"
+		"aws/aws-sdk-php": "^3.135"
 	},
 	"require-dev": {
 		"wp-coding-standards/wpcs": "^2.2",
