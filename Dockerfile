@@ -36,7 +36,7 @@ RUN \
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 # set up empty composer project
-RUN composer init -n
+RUN composer init -n --name "c0wfunk/woocommerce-aws-integration"
 
 # add composer bin to path
 ENV PATH="${PATH}:/var/www/html/vendor/bin"
