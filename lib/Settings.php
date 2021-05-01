@@ -8,6 +8,7 @@ class Settings extends \WC_Integration {
 		'arn_order_paid'        => 'ARN_ORDER_PAID',
 		'arn_order_shipped'     => 'ARN_ORDER_SHIPPED',
 		'arn_order_refunded'    => 'ARN_ORDER_REFUNDED',
+		'arn_order_rmaprocessing'  => 'ARN_ORDER_RMAPROCESSING',
 		'arn_product_published' => 'ARN_PRODUCT_PUBLISHED',
 		'arn_product_sold'      => 'ARN_PRODUCT_SOLD',
 		'arn_product_shipped'   => 'ARN_PRODUCT_SHIPPED',
@@ -82,6 +83,14 @@ class Settings extends \WC_Integration {
 				'desc_tip'          => true,
 				'placeholder'       => 'arn:aws:sns:us-east-1:1234:MyTopic',
 				'custom_attributes' => $this->readonly_if_defined( self::$setting_constants['arn_product_refunded'] ),
+			),
+			'arn_order_rmaprocessing'  => array(
+				'title'             => self::$setting_constants['arn_order_rmaprocessing'],
+				'type'              => 'text',
+				'description'       => __( 'ARN to publish when order rma is processing', 'woocommerce-aws-integration' ),
+				'desc_tip'          => true,
+				'placeholder'       => 'arn:aws:sns:us-east-1:1234:MyTopic',
+				'custom_attributes' => $this->readonly_if_defined( self::$setting_constants['arn_order_rmaprocessing'] ),
 			),
 
 			'aws_access_key_id'     => array(
