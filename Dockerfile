@@ -1,4 +1,4 @@
-FROM php:7.4-apache
+FROM php:7.4.18-apache
 
 # create web root dir
 RUN mkdir -p /var/www/html
