@@ -1,11 +1,11 @@
 === AWS Event Producer for WooCommerce ===
-Contributors: Toriverkosto, Zuige
+Contributors: Toriverkosto, Zuige, Ferguson, Jeremy
 Tags: woocommerce, s3, sns, sqs, firehose, stream, aws, data
 Donate link: https://github.com/anttiviljami
 Requires at least: 4.7
 Tested up to: 5.4
 Requires PHP: 7.1
-Stable tag: 1.2.5
+Stable tag: 1.2.6
 License: GPLv3
 License URI: https://github.com/Toriverkosto/woocommerce-aws-integration/blob/master/LICENSE
 
@@ -31,6 +31,7 @@ The following events are currently supported out-of-the-box:
 - Product Sold
 - Product Shipped
 - Product Refunded
+- RMA Processing (custom status)
 
 **Why**
 
@@ -84,4 +85,3 @@ https://github.com/Toriverkosto/woocommerce-aws-integration/commits/master
 
 * 1.0 There's an update available to AWS SNS Publisher for WooCommerce that
 makes it better. Please upgrade to the newest version
-
