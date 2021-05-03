@@ -23,7 +23,7 @@ class Plugin {
 			add_filter( 'woocommerce_integrations', array( $this, 'add_integration' ) );
 			do_action( 'aws_sns_woocommerce_initialized', $hooks, $settings );
 			$this->register_rma_processing_order_status();
-			add_filter( 'wc_order_statuses', array($this, 'add_rma_processing_to_order_statuses'));
+			add_filter( 'wc_order_statuses', array( $this, 'add_rma_processing_to_order_statuses' ) );
 		}
 	}
 
@@ -46,12 +46,13 @@ class Plugin {
 
  	private function register_rma_processing_order_status() {
 		register_post_status( 'wc-rma_processing', array(
-				'label'                     => 'RMA processing',
-				'public'                    => true,
-				'exclude_from_search'       => false,
-				'show_in_admin_all_list'    => true,
-				'show_in_admin_status_list' => true,
-				'label_count'               => _n_noop( 'RMA processing (%s)', 'RMA processing (%s)' )
+			'label'                     => 'RMA processing',
+			'public'                    => true,
+			'exclude_from_search'       => false,
+			'show_in_admin_all_list'    => true,
+			'show_in_admin_status_list' => true,
+			/* translators: custom status label */
+			'label_count'               => _n_noop( 'RMA processing (%s)', 'RMA processing (%s)', 'woocommerce-aws-integration' ),
 		) );
 	}
 
@@ -62,11 +63,11 @@ class Plugin {
 		// add rma-processing order status after processing
 		foreach ( $order_statuses as $key => $status ) {
 
-				$new_order_statuses[ $key ] = $status;
+			$new_order_statuses[ $key ] = $status;
 
-				if ( 'wc-processing' === $key ) {
-						$new_order_statuses['wc-rma_processing'] = 'RMA processing';
-				}
+			if ( 'wc-processing' === $key ) {
+				$new_order_statuses['wc-rma_processing'] = 'RMA processing';
+			}
 		}
 
 		return $new_order_statuses;
