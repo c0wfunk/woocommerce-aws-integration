@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 class PluginAdminCest
 {
@@ -9,7 +9,7 @@ class PluginAdminCest
 		public function shouldBeActivated(AcceptanceTester $I)
 		{
 			// given
-			$plugin_slug = 'aws-integration-for-woocommerce';
+			$plugin_slug = 'woocommerce-aws-integration';
 			$I->loginAsAdmin();
 			$I->amOnAdminPage('/');
 
