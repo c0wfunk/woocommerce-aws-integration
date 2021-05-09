@@ -22,8 +22,11 @@ class Plugin {
 
 			add_filter( 'woocommerce_integrations', array( $this, 'add_integration' ) );
 			do_action( 'aws_sns_woocommerce_initialized', $hooks, $settings );
+
 			$this->register_rma_processing_order_status();
 			add_filter( 'wc_order_statuses', array( $this, 'add_rma_processing_to_order_statuses' ) );
+			$this->register_rma_canceled_order_status();
+			add_filter( 'wc_order_statuses', array( $this, 'add_rma_canceled_to_order_statuses' ) );
 		}
 	}
 
@@ -72,6 +75,36 @@ class Plugin {
 
 		return $new_order_statuses;
 	}
+
+	private function register_rma_canceled_order_status() {
+		register_post_status( 'wc-rma_canceled', array(
+			'label'                     => 'RMA canceled',
+			'public'                    => true,
+			'exclude_from_search'       => false,
+			'show_in_admin_all_list'    => true,
+			'show_in_admin_status_list' => true,
+			/* translators: custom status label */
+			'label_count'               => _n_noop( 'RMA canceled (%s)', 'RMA canceled (%s)', 'woocommerce-aws-integration' ),
+		) );
+	}
+
+	// Add to list of WC Order statuses
+	public function add_rma_canceled_to_order_statuses( $order_statuses ) {
+		$new_order_statuses = array();
+
+		// add rma-canceled order status after rma_processing
+		foreach ( $order_statuses as $key => $status ) {
+
+			$new_order_statuses[ $key ] = $status;
+
+			if ( 'wc-rma_processing' === $key ) {
+				$new_order_statuses['wc-rma_canceled'] = 'RMA canceled';
+			}
+		}
+
+		return $new_order_statuses;
+	}
+
 }
 
 new Plugin( __FILE__ );

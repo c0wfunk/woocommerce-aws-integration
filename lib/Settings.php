@@ -9,6 +9,7 @@ class Settings extends \WC_Integration {
 		'arn_order_shipped'     => 'ARN_ORDER_SHIPPED',
 		'arn_order_refunded'    => 'ARN_ORDER_REFUNDED',
 		'arn_order_rma_processing'  => 'ARN_ORDER_RMA_PROCESSING',
+		'arn_order_rma_canceled'  => 'ARN_ORDER_RMA_CANCELED',
 		'arn_product_published' => 'ARN_PRODUCT_PUBLISHED',
 		'arn_product_sold'      => 'ARN_PRODUCT_SOLD',
 		'arn_product_shipped'   => 'ARN_PRODUCT_SHIPPED',
@@ -91,6 +92,14 @@ class Settings extends \WC_Integration {
 				'desc_tip'          => true,
 				'placeholder'       => 'arn:aws:sns:us-east-1:1234:MyTopic',
 				'custom_attributes' => $this->readonly_if_defined( self::$setting_constants['arn_order_rma_processing'] ),
+			),
+			'arn_order_rma_canceled'  => array(
+				'title'             => self::$setting_constants['arn_order_rma_canceled'],
+				'type'              => 'text',
+				'description'       => __( 'ARN to publish when order rma is canceled', 'woocommerce-aws-integration' ),
+				'desc_tip'          => true,
+				'placeholder'       => 'arn:aws:sns:us-east-1:1234:MyTopic',
+				'custom_attributes' => $this->readonly_if_defined( self::$setting_constants['arn_order_rma_canceled'] ),
 			),
 
 			'aws_access_key_id'     => array(
