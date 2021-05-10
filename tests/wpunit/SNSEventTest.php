@@ -38,7 +38,7 @@ class SNSEventTest extends \Codeception\TestCase\WPTestCase
 		$snsEvent->publish();
 
 		// then
-		$mock->shouldHaveReceived('publish')->with(\Mockery::on(function ($opts) use($target, $data, $event, $timestamp) {
+		$mock->shouldHaveReceived('publish')->with(\Mockery::on(function ($opts) use($target, $data, $event, $timestamp, $site_url) {
 			$message = wp_json_encode(array_merge(
 				[ 'site' => $site_url ],
 				[ 'event' => $event ],
