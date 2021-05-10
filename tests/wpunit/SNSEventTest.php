@@ -3,13 +3,13 @@
 require_once 'wp-content/plugins/woocommerce-aws-integration/lib/SNSEvent.php';
 
 use AWSWooCommerce\SNSEvent;
-use Aws\Sns\SnsClient; 
+use Aws\Sns\SnsClient;
 
 class SNSEventTest extends \Codeception\TestCase\WPTestCase
 {
 	protected $tester;
 	public $mockSettings;
-	
+
 	public function setUp(): void
 	{
 		\Mockery::globalHelpers();
@@ -29,6 +29,7 @@ class SNSEventTest extends \Codeception\TestCase\WPTestCase
 		$target = 'arn:aws:sns:123:TestTopic';
 		$data = [ 'test' => 'data' ];
 		$timestamp = '2020-05-02T17:27:33+00:00';
+		$site_url = 'http://test.com';
 		$mock = spy(SnsClient::class);
 
 		// when
@@ -39,6 +40,7 @@ class SNSEventTest extends \Codeception\TestCase\WPTestCase
 		// then
 		$mock->shouldHaveReceived('publish')->with(\Mockery::on(function ($opts) use($target, $data, $event, $timestamp) {
 			$message = wp_json_encode(array_merge(
+				[ 'site' => $site_url ],
 				[ 'event' => $event ],
 				[ 'timestamp' => $timestamp ],
 				$data

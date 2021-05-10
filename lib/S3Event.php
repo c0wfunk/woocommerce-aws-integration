@@ -43,10 +43,8 @@ class S3Event implements IEvent {
 		$event     = $this->event;
 		$data      = $this->data;
 		$timestamp = $this->timestamp;
-		$site_url = get_site_url();
 
 		$payload = array_merge(
-			array( 'site' => $site_url ),
 			array( 'event' => $event ),
 			array( 'timestamp' => $timestamp ),
 			$data
