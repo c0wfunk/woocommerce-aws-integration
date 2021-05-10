@@ -13,7 +13,7 @@ jobs:
       matrix:
         VERSIONS:
           - WP_VERSION=latest # all latest
-          - WP_VERSION=5.4 WC_VERSION=4.0.1
+
     steps:
       - uses: actions/checkout@v1
       - uses: php-actions/composer@v1
