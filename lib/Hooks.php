@@ -110,7 +110,13 @@ class Hooks {
 		if ( $target ) {
 			foreach ( $items as $item ) {
 				$product = $item->get_product();
-				$data    = array_merge( $item->get_data(), $product->get_data() );
+
+				$all_meta_data = [];
+				foreach ( $item->get_meta_data() as $meta_data ) {
+					$all_meta_data[] = $meta_data->get_data();
+				}
+
+				$data = array_merge( $item->get_data(), $product->get_data(), $all_meta_data );
 				$this->publish( $target, $event, $data );
 			}
 		}
