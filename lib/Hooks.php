@@ -111,7 +111,7 @@ class Hooks {
 			foreach ( $items as $item ) {
 				$product = $item->get_product();
 
-				$all_meta_data = [];
+				$all_meta_data = array();
 				foreach ( $item->get_meta_data() as $meta_data ) {
 					$all_meta_data[] = $meta_data->get_data();
 				}
