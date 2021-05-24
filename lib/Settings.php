@@ -14,7 +14,7 @@ class Settings extends \WC_Integration {
 		'arn_product_sold'      => 'ARN_PRODUCT_SOLD',
 		'arn_product_shipped'   => 'ARN_PRODUCT_SHIPPED',
 		'arn_product_refunded'  => 'ARN_PRODUCT_REFUNDED',
-		'rma_period_length'			=> 'RMA_PERIOD_LENGTH',
+		'rma_period_length'     => 'RMA_PERIOD_LENGTH',
 	);
 
 	public function __construct() {
@@ -128,7 +128,7 @@ class Settings extends \WC_Integration {
 				'default'           => 'us-east-1',
 				'custom_attributes' => $this->readonly_if_defined( self::$setting_constants['aws_region'] ),
 			),
-			'rma_period_length'		=> array(
+			'rma_period_length'   => array(
 				'title'             => self::$setting_constants['rma_period_length'],
 				'type'              => 'text',
 				'description'       => __( 'Length of RMA period in days', 'woocommerce-aws-integration' ),
