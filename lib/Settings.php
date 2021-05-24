@@ -133,7 +133,7 @@ class Settings extends \WC_Integration {
 				'type'              => 'text',
 				'description'       => __( 'Length of RMA period in days', 'woocommerce-aws-integration' ),
 				'desc_tip'          => true,
-				'placeholder'       => '30',
+				'placeholder'       => 'number of days',
 				'custom_attributes' => $this->readonly_if_defined( self::$setting_constants['rma_period_length'] ),
 			),
 		);
