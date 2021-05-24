@@ -27,6 +27,9 @@ class Plugin {
 			add_filter( 'wc_order_statuses', array( $this, 'add_rma_processing_to_order_statuses' ) );
 			$this->register_rma_canceled_order_status();
 			add_filter( 'wc_order_statuses', array( $this, 'add_rma_canceled_to_order_statuses' ) );
+
+			$this->settings = Settings::instance();
+			add_option( 'rma_period_length', $this->settings->get_option( 'rma_period_length' ));
 		}
 	}
 
