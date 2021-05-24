@@ -127,6 +127,15 @@ class Settings extends \WC_Integration {
 				'default'           => 'us-east-1',
 				'custom_attributes' => $this->readonly_if_defined( self::$setting_constants['aws_region'] ),
 			),
+			'rma_period'            => array(
+				'title'             => self::$setting_constants['rma_period_length'],
+				'type'              => 'text',
+				'description'       => __( 'Length of RMA period in days', 'woocommerce-aws-integration' ),
+				'desc_tip'          => true,
+				'placeholder'       => 'us-east-1',
+				'default'           => 'us-east-1',
+				'custom_attributes' => $this->readonly_if_defined( self::$setting_constants['rma_period_length'] ),
+			),
 		);
 	}
 
