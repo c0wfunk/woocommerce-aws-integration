@@ -2,19 +2,19 @@
 
 class Settings extends \WC_Integration {
 	public static $setting_constants = array(
-		'aws_access_key_id'     => 'AWS_ACCESS_KEY_ID',
-		'aws_secret_access_key' => 'AWS_SECRET_ACCESS_KEY',
-		'aws_region'            => 'AWS_REGION',
-		'arn_order_paid'        => 'ARN_ORDER_PAID',
-		'arn_order_shipped'     => 'ARN_ORDER_SHIPPED',
-		'arn_order_refunded'    => 'ARN_ORDER_REFUNDED',
+		'aws_access_key_id'         => 'AWS_ACCESS_KEY_ID',
+		'aws_secret_access_key'     => 'AWS_SECRET_ACCESS_KEY',
+		'aws_region'                => 'AWS_REGION',
+		'arn_order_paid'            => 'ARN_ORDER_PAID',
+		'arn_order_shipped'         => 'ARN_ORDER_SHIPPED',
+		'arn_order_refunded'        => 'ARN_ORDER_REFUNDED',
 		'arn_order_rma_processing'  => 'ARN_ORDER_RMA_PROCESSING',
-		'arn_order_rma_canceled'  => 'ARN_ORDER_RMA_CANCELED',
-		'arn_product_published' => 'ARN_PRODUCT_PUBLISHED',
-		'arn_product_sold'      => 'ARN_PRODUCT_SOLD',
-		'arn_product_shipped'   => 'ARN_PRODUCT_SHIPPED',
-		'arn_product_refunded'  => 'ARN_PRODUCT_REFUNDED',
-		'rma_period_length'     => 'RMA_PERIOD_LENGTH',
+		'arn_order_rma_canceled'    => 'ARN_ORDER_RMA_CANCELED',
+		'arn_product_published'     => 'ARN_PRODUCT_PUBLISHED',
+		'arn_product_sold'          => 'ARN_PRODUCT_SOLD',
+		'arn_product_shipped'       => 'ARN_PRODUCT_SHIPPED',
+		'arn_product_refunded'      => 'ARN_PRODUCT_REFUNDED',
+		'rma_period_length'         => 'RMA_PERIOD_LENGTH',
 	);
 
 	public function __construct() {
